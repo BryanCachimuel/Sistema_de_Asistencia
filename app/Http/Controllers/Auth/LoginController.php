@@ -25,7 +25,9 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    /*protected $redirectTo = '/home';*/
+    /*TODO: si el login es correcto me redirige a la ruta del archivo de la vista de index */
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
