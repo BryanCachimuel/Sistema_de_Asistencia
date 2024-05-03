@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* permite que si un usuario esta autenticado pueda ingresar a la ruta de la vista del index */
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->middleware('auth');
 
-Auth::routes();
+/* deshabilitar la ruta para la vista de register */
+Auth::routes(['register'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
