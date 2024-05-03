@@ -33,6 +33,10 @@ return [
     |
     */
 
+    /*TODO: para cambiar los datos de la columna tipo(MyISAM en algunos casos viene con este nombre) en las entidades 
+            se debe cambiar en 'engine' => null, a true  y con eso el tipo cambiaria a InnoDB
+    */
+
     'connections' => [
 
         'sqlite' => [
