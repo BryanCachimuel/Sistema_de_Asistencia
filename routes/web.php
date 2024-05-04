@@ -13,12 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* permite que si un usuario esta autenticado pueda ingresar a la ruta de la vista del index */
+/*TODO: permite que si un usuario esta autenticado pueda ingresar a la ruta de la vista del index */
 Route::get('/', function () {
     return view('index');
 })->middleware('auth');
 
-/* deshabilitar la ruta para la vista de register */
+/*TODO: deshabilitar la ruta para la vista de register */
 Auth::routes(['register'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*TODO: habilitando la ruta para listar los miembros registrados */
+Route::get('/miembros', function () {
+    return view('miembros.index');
+})->middleware('auth');
+
+Route::get('/miembros/create', function () {
+    return view('miembros.create');
+})->middleware('auth');
