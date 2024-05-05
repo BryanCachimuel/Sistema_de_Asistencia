@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Miembro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MiembroController extends Controller
 {
     /*TODO: redirigiendo hacia la vista de listado de miembros */
     public function index(){
-        return view('miembros.index');
+        $miembros = Miembro::all();
+        return view('miembros.index',['miembros'=>$miembros]);
     }
 }
