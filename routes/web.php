@@ -23,10 +23,12 @@ Auth::routes(['register'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-/*TODO: habilitando la ruta para listar los miembros registrados */
+Route::get('/miembros', [App\Http\Controllers\MiembroController::class, 'index']);
+
+/*TODO: habilitando la ruta para listar los miembros registrados 
 Route::get('/miembros', function () {
     return view('miembros.index');
-})->middleware('auth');
+})->middleware('auth');*/
 
 Route::get('/miembros/create', function () {
     return view('miembros.create');
