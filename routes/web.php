@@ -25,11 +25,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/miembros', [App\Http\Controllers\MiembroController::class, 'index']);
 
+Route::get('/miembros/create', [App\Http\Controllers\MiembroController::class, 'create']);
+
 /*TODO: habilitando la ruta para listar los miembros registrados 
 Route::get('/miembros', function () {
     return view('miembros.index');
 })->middleware('auth');*/
 
-Route::get('/miembros/create', function () {
+/*Route::get('/miembros/create', function () {
     return view('miembros.create');
-})->middleware('auth');
+})->middleware('auth');*/
