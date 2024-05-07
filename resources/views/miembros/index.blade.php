@@ -5,11 +5,15 @@
         <h1>Listado de Miembros</h1>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mt-2">
                 <div class="card card-outline card-primary">
                     <div class="card-header">
                         <h3 class="card-title"><strong>Miembros Registrados</strong></h3>
-                       
+                       <div class="card-tools">
+                            <a href="{{url('/miembros/create')}}" class="btn btn-primary">
+                                <i class="bi bi-person-fill-add"></i> Agregar Nuevo Miembro
+                            </a>
+                       </div>
                     </div>
 
                     <div class="card-body" style="display:block;">
