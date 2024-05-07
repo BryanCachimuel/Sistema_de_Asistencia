@@ -13,7 +13,7 @@
 
                     <div class="card-body" style="display:block;">
 
-                       <form action="">
+                       <form action="{{url('/miembro')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
 
                         <div class="row">
 
@@ -22,29 +22,29 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="">Nombres y Apellidos:</label><b>*</b>
+                                            <label for="">Nombres y Apellidos:</label> <b>*</b>
                                             <input type="text" class="form-control" required>
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="">Correo:</label>
-                                            <input type="email" class="form-control">
+                                            <label for="">Correo:</label> <b>*</b>
+                                            <input type="email" class="form-control" required>
                                         </div>
                                     </div>
             
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="">Teléfono:</label>
-                                            <input type="number" class="form-control">
+                                            <label for="">Teléfono:</label> <b>*</b>
+                                            <input type="number" class="form-control" required>
                                         </div>
                                     </div>
             
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="">Fecha de Nacimiento:</label>
-                                            <input type="date" class="form-control">
+                                            <label for="">Fecha de Nacimiento:</label> <b>*</b>
+                                            <input type="date" class="form-control" required>
                                         </div>
                                     </div>
             
@@ -54,21 +54,24 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Género:</label>
-                                            <input type="text" class="form-control">
+                                            <select name="" class="form-control" id="">
+                                                <option value="Masculino">Masculino</option>
+                                                <option value="Femenino">Femenino</option>
+                                            </select>
                                         </div>
                                     </div>
             
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="">Curso:</label>
-                                            <input type="text" class="form-control">
+                                            <label for="">Curso:</label> <b>*</b>
+                                            <input type="text" class="form-control" required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Dirección:</label>
-                                            <input type="text" class="form-control">
+                                            <label for="">Dirección:</label> <b>*</b>
+                                            <input type="text" class="form-control" required>
                                         </div>
                                     </div>
             
@@ -79,7 +82,36 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Fotografía:</label>
-                                    <input type="file" class="form-control">
+                                    <input type="file" id="file" class="form-control"><br>
+                                    <center>
+                                        <output id="list"></output>
+                                    </center>
+                                    <script>
+                                        function archivo(evt){
+                                            var files = evt.target.files;
+                                            //obtenemos la imagen del campo "file".
+                                            for (var i=0, f; f = files[i]; i++){
+                                                //solo admitimos imagenes.
+                                                if (!f.type.match('image.*')){
+                                                    continue;
+                                                }
+
+                                                var reader = new FileReader();
+                                                reader.onload = (function (theFile){
+
+                                                    return function (e){
+                                                        //insertamos la imagen
+                                                        document.getElementById("list").innerHTML = ['<img class="thumb thumbnail" src="',e.target.result,'"width="50%" title="', escape(theFile.name),'"/>'].join('');
+                                                    };
+                                                }) (f);
+
+                                                reader.readAsDataURL(f);
+                                            }
+                                        }
+
+                                        document.getElementById('file').addEventListener('change',archivo, false);
+
+                                    </script>
                                 </div>
                             </div>
                        
