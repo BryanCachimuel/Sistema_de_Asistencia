@@ -13,4 +13,9 @@ class MiembroController extends Controller
         $miembros = Miembro::all();
         return view('miembros.index',['miembros'=>$miembros]);
     }
+
+    /*TODO: redireccionando hacia la vista de creación de miembros */
+    public function create(){
+        return view('miembros.create');
+    }
 }
