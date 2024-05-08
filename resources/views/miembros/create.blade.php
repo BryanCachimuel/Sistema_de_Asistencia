@@ -4,6 +4,14 @@
     <div class="content ml-3">
         <h1>Creación de un Nuevo Miembro</h1>
 
+        <!-- imprimir en una lista los errores 
+        @foreach ($errors->all() as $err)
+            <div class="alert alert-danger">
+                <li>{{$err}}</li>
+            </div>
+         @endforeach-->
+       
+
         <div class="row">
             <div class="col-md-12 mt-2">
                 <div class="card card-outline card-primary">
@@ -23,28 +31,40 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Nombres y Apellidos:</label> <b>*</b>
-                                            <input type="text" name="nombre_apellido" class="form-control" required>
+                                            <input type="text" name="nombre_apellido" class="form-control">
+                                            @error('nombre_apellido')
+                                                <small style="color:#FF0000">* Este campo es requerido</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Correo:</label> <b>*</b>
-                                            <input type="email" name="email" class="form-control" required>
+                                            <input type="email" name="email" class="form-control">
+                                            @error('email')
+                                                <small style="color:#FF0000">* Este campo es requerido</small>
+                                            @enderror
                                         </div>
                                     </div>
             
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Teléfono:</label> <b>*</b>
-                                            <input type="number" name="telefono" class="form-control" required>
+                                            <input type="number" name="telefono" class="form-control">
+                                            @error('telefono')
+                                                <small style="color:#FF0000">* Este campo es requerido</small>
+                                            @enderror
                                         </div>
                                     </div>
             
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Fecha de Nacimiento:</label> <b>*</b>
-                                            <input type="date" name="fecha_nacimiento" class="form-control" required>
+                                            <input type="date" name="fecha_nacimiento" class="form-control">
+                                            @error('fecha_nacimiento')
+                                                <small style="color:#FF0000">* Este campo es requerido</small>
+                                            @enderror
                                         </div>
                                     </div>
             
@@ -54,7 +74,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Género:</label>
-                                            <select name="genero" class="form-control" id="">
+                                            <select name="genero" class="form-control">
                                                 <option value="Masculino">Masculino</option>
                                                 <option value="Femenino">Femenino</option>
                                             </select>
@@ -64,14 +84,20 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Curso:</label> <b>*</b>
-                                            <input type="text"  name="curso" class="form-control" required>
+                                            <input type="text"  name="curso" class="form-control">
+                                            @error('curso')
+                                                <small style="color:#FF0000">* Este campo es requerido</small>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Dirección:</label> <b>*</b>
-                                            <input type="text" name="direccion" class="form-control" required>
+                                            <input type="text" name="direccion" class="form-control">
+                                            @error('direccion')
+                                                <small style="color:#FF0000">* Este campo es requerido</small>
+                                            @enderror
                                         </div>
                                     </div>
             
