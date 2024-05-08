@@ -23,9 +23,12 @@ Auth::routes(['register'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/miembros', [App\Http\Controllers\MiembroController::class, 'index']);
+/*TODO: Para avilitar todas las rutas y acceder a todas las funciones del controlador de Miembro */
+route::resource('/miembros',\App\Http\Controllers\MiembroController::class);
 
-Route::get('/miembros/create', [App\Http\Controllers\MiembroController::class, 'create']);
+/*Route::get('/miembros', [App\Http\Controllers\MiembroController::class, 'index']);
+
+Route::get('/miembros/create', [App\Http\Controllers\MiembroController::class, 'create']);*/
 
 /*TODO: habilitando la ruta para listar los miembros registrados 
 Route::get('/miembros', function () {
