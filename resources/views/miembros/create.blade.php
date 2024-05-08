@@ -13,8 +13,8 @@
 
                     <div class="card-body" style="display:block;">
 
-                       <form action="{{url('/miembro')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
-
+                       <form action="{{url('/miembros')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
+                        @csrf
                         <div class="row">
 
                             <div class="col-md-9">
@@ -23,28 +23,28 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Nombres y Apellidos:</label> <b>*</b>
-                                            <input type="text" class="form-control" required>
+                                            <input type="text" name="nombre_apellido" class="form-control" required>
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Correo:</label> <b>*</b>
-                                            <input type="email" class="form-control" required>
+                                            <input type="email" name="email" class="form-control" required>
                                         </div>
                                     </div>
             
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Teléfono:</label> <b>*</b>
-                                            <input type="number" class="form-control" required>
+                                            <input type="number" name="telefono" class="form-control" required>
                                         </div>
                                     </div>
             
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Fecha de Nacimiento:</label> <b>*</b>
-                                            <input type="date" class="form-control" required>
+                                            <input type="date" name="fecha_nacimiento" class="form-control" required>
                                         </div>
                                     </div>
             
@@ -54,7 +54,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Género:</label>
-                                            <select name="" class="form-control" id="">
+                                            <select name="genero" class="form-control" id="">
                                                 <option value="Masculino">Masculino</option>
                                                 <option value="Femenino">Femenino</option>
                                             </select>
@@ -64,14 +64,14 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Curso:</label> <b>*</b>
-                                            <input type="text" class="form-control" required>
+                                            <input type="text"  name="curso" class="form-control" required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Dirección:</label> <b>*</b>
-                                            <input type="text" class="form-control" required>
+                                            <input type="text" name="direccion" class="form-control" required>
                                         </div>
                                     </div>
             
@@ -82,7 +82,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Fotografía:</label>
-                                    <input type="file" id="file" class="form-control"><br>
+                                    <input type="file" name="fotografia" id="file" class="form-control"><br>
                                     <center>
                                         <output id="list"></output>
                                     </center>
