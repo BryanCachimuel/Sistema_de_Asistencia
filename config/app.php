@@ -83,7 +83,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    /*TODO: Cambiando a idioma español los diferentes mensajes que pueden aarecer en el frontend */
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +97,8 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+     /*TODO: Cambiando a idioma español los diferentes mensajes que pueden aarecer en el frontend */
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
