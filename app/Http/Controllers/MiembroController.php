@@ -57,7 +57,9 @@ class MiembroController extends Controller
         return redirect()->route('miembros.index')->with('mensaje','Miembro registrado Correctamente');
     }
 
-    public function show(){
-        return view('miembros.show');
+    public function show($id){
+        $miembro = Miembro::find($id);
+        //return response()->json($miembro);
+        return view('miembros.show',['miembro'=>$miembro]);
     }
 }
