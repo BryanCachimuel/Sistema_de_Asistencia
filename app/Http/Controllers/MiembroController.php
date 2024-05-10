@@ -9,7 +9,7 @@ class MiembroController extends Controller
 {
     /*TODO: redirigiendo hacia la vista de listado de miembros */
     public function index(){
-        $miembros = Miembro::all();
+        $miembros = Miembro::all()->sortByDesc('id');
         return view('miembros.index',['miembros'=>$miembros]);
     }
 
@@ -43,11 +43,21 @@ class MiembroController extends Controller
         $miembro->estado = '1';
         $miembro->curso = $request->curso;
 
-        //$miembro->fotografia = $request->fotografia;
-        $miembro->fotografia = $request->file('fotografia')->store('fotografias_miembros','public');
-
+        if($request->hasFile('fotogrofia')){
+            //$miembro->fotografia = $request->fotografia;
+            /*TODO: se guarda la fotografia en en los siguientes directorio storage/public/fotografias_miembros(nombre del directorio de preferencia) */
+            $miembro->fotografia = $request->file('fotografia')->store('fotografias_miembros','public');
+        }
+       
         $miembro->fecha_ingreso = '2024-05-07';
 
         $miembro->save();
+
+        /*TODO: una vez el registro se guarda este se redirige hacia la vista donde esta el listado de miembros */
+        return redirect()->route('miembros.index')->with('mensaje','Miembro registrado Correctamente');
+    }
+
+    public function show(){
+        return view('miembros.show');
     }
 }
