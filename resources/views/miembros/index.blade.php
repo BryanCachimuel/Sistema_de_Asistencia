@@ -3,6 +3,18 @@
     
     <div class="content ml-3">
         <h1>Listado de Miembros</h1>
+        <!--TODO: si existe una sesión con el nombre mensaje va a aparecer está alerta -->
+        @if ($message = Session::get('mensaje'))
+            <script>
+                Swal.fire({
+                    title: "Registro Exitoso",
+                    text: "{{$message}}",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+            </script> 
+        @endif
 
         <div class="row">
             <div class="col-md-12 mt-2">
@@ -46,7 +58,13 @@
                                     <td>{{$miembro->email}}</td>
                                     <td>{{$miembro->estado}}</td>
                                     <td>{{$miembro->fecha_ingreso}}</td>
-                                    <td></td>
+                                    <td style="text-align: center">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <a href="{{url('miembros',$miembro->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye-fill"></i></a>
+                                            <a href="" type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                                            <a href="" type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
+                                          </div>
+                                    </td>
                                 </tr>
                                  @endforeach
                             </tbody>
