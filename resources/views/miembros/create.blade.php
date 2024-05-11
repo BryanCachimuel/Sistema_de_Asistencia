@@ -31,7 +31,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Nombres y Apellidos:</label> <b>*</b>
-                                            <input type="text" name="nombre_apellido" class="form-control">
+                                            <input type="text" name="nombre_apellido" class="form-control" value="{{old('nombre_apellido')}}">
                                             @error('nombre_apellido')
                                                 <small style="color:#FF0000">* Este campo es requerido</small>
                                             @enderror
@@ -41,7 +41,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Correo:</label> <b>*</b>
-                                            <input type="email" name="email" class="form-control">
+                                            <input type="email" name="email" class="form-control" value="{{old('email')}}">
                                             @error('email')
                                                 <small style="color:#FF0000">* Este campo es requerido</small>
                                             @enderror
@@ -51,7 +51,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Teléfono:</label> <b>*</b>
-                                            <input type="number" name="telefono" class="form-control">
+                                            <input type="number" name="telefono" class="form-control" value="{{old('telefono')}}">
                                             @error('telefono')
                                                 <small style="color:#FF0000">* Este campo es requerido</small>
                                             @enderror
@@ -61,7 +61,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Fecha de Nacimiento:</label> <b>*</b>
-                                            <input type="date" name="fecha_nacimiento" class="form-control">
+                                            <input type="date" name="fecha_nacimiento" class="form-control" value="{{old('fecha_nacimiento')}}">
                                             @error('fecha_nacimiento')
                                                 <small style="color:#FF0000">* Este campo es requerido</small>
                                             @enderror
@@ -84,7 +84,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Curso:</label> <b>*</b>
-                                            <input type="text"  name="curso" class="form-control">
+                                            <input type="text"  name="curso" class="form-control" value="{{old('curso')}}">
                                             @error('curso')
                                                 <small style="color:#FF0000">* Este campo es requerido</small>
                                             @enderror
@@ -94,7 +94,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Dirección:</label> <b>*</b>
-                                            <input type="text" name="direccion" class="form-control">
+                                            <input type="text" name="direccion" class="form-control" value="{{old('direccion')}}">
                                             @error('direccion')
                                                 <small style="color:#FF0000">* Este campo es requerido</small>
                                             @enderror
@@ -148,7 +148,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <a href="" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
+                                    <a href="{{url('miembros')}}" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
                                     <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle-fill"></i> Registrar</button>
                                 </div>
                             </div>
