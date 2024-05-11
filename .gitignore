@@ -21,3 +21,4 @@ yarn-error.log
 .editconfig
 /public/dist
 /public/plugins
+/public/img
