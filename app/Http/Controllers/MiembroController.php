@@ -58,8 +58,13 @@ class MiembroController extends Controller
     }
 
     public function show($id){
-        $miembro = Miembro::find($id);
+        $miembro = Miembro::findOrFail($id);
         //return response()->json($miembro);
         return view('miembros.show',['miembro'=>$miembro]);
+    }
+
+    public function edit($id){
+        $miembro = Miembro::findOrFail($id);
+        return view('miembros.edit',['miembro'=>$miembro]);
     }
 }
