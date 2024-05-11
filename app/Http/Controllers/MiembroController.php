@@ -67,4 +67,8 @@ class MiembroController extends Controller
         $miembro = Miembro::findOrFail($id);
         return view('miembros.edit',['miembro'=>$miembro]);
     }
+
+    public function update(Request $request, $id){
+
+    }
 }
