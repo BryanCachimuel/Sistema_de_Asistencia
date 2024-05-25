@@ -62,8 +62,15 @@
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a href="{{url('miembros',$miembro->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye-fill"></i></a>
                                             <a href="{{route('miembros.edit',$miembro->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
-                                            <a href="" type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
-                                          </div>
+                                            <!-- formulario para eliminar un miembro -->
+                                            <form action="{{url('miembros',$miembro->id)}}" method="POST">
+                                                @csrf
+                                                {{method_field('DELETE')}}
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="bi bi-trash3-fill"></i>
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                                  @endforeach
