@@ -23,6 +23,7 @@
 
                        <form action="{{url('/miembros',$miembro->id)}}" method="POST" enctype="multipart/form-data" autocomplete="off">
                         @csrf
+                        {{method_field('PATCH')}}
                         <div class="row">
 
                             <div class="col-md-9">
@@ -73,8 +74,8 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="">Género:</label>
-                                            <select name="genero" class="form-control" disabled>
+                                            <label for="">Género:</label> <b>*</b>
+                                            <select name="genero" class="form-control">
                                                 @if ($miembro->genero == 'Masculino')
                                                     <option value="Masculino">Masculino</option>
                                                     <option value="Femenino">Femenino</option>
@@ -112,7 +113,7 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="">Fotografía:</label>
+                                    <label for="">Fotografía:</label> <b>*</b>
                                     <input type="file" name="fotografia" id="file" class="form-control"><br>
                                     <center>
                                         <output id="list">
