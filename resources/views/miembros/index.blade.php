@@ -7,7 +7,7 @@
         @if ($message = Session::get('mensaje'))
             <script>
                 Swal.fire({
-                    title: "Registro Exitoso",
+                    title: "Proceso Exitoso",
                     text: "{{$message}}",
                     icon: "success",
                     showConfirmButton: false,
