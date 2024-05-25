@@ -107,8 +107,11 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="">Fotografía:</label>
+                                    <label for="">Fotografía:</label><b>*</b>
                                     <input type="file" name="fotografia" id="file" class="form-control"><br>
+                                    @error('fotografia')
+                                        <small style="color:#FF0000">* Este campo es requerido</small>
+                                     @enderror
                                     <center>
                                         <output id="list"></output>
                                     </center>
