@@ -88,11 +88,11 @@
                                     @if ($miembro->fotografia == '')
                                         @if ($miembro->genero == 'Masculino')
                                             <center>
-                                                <img src="{{url('img/imghombre.png')}}" width="150px">
+                                                <img src="{{url('image/avatar-hombre.png')}}" width="150px">
                                             </center>
                                         @else
                                             <center>
-                                                <img src="{{url('img/imgmujer.png')}}" width="150px">
+                                                <img src="{{url('image/avatar-mujer.png')}}" width="150px">
                                             </center>
                                         @endif
                                     @else
