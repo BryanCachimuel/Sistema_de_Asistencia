@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Miembro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MiembroController extends Controller
 {
@@ -31,6 +32,7 @@ class MiembroController extends Controller
             'fecha_nacimiento' => 'required',
             'email' => 'required',
             'curso' => 'required',
+            'fotografia' => 'required'
         ]);
 
         $miembro = new Miembro();
@@ -43,12 +45,11 @@ class MiembroController extends Controller
         $miembro->estado = '1';
         $miembro->curso = $request->curso;
 
-        if($request->hasFile('fotogrofia')){
-            //$miembro->fotografia = $request->fotografia;
+        if(!($request->hasFile('fotogrofia'))){
             /*TODO: se guarda la fotografia en en los siguientes directorio storage/public/fotografias_miembros(nombre del directorio de preferencia) */
             $miembro->fotografia = $request->file('fotografia')->store('fotografias_miembros','public');
         }
-       
+
         $miembro->fecha_ingreso = '2024-05-07';
 
         $miembro->save();
@@ -58,7 +59,7 @@ class MiembroController extends Controller
     }
 
     public function show($id){
-        $miembro = Miembro::findOrFail($id);
+        $miembro = Miembro::findOrFail($id) ;
         //return response()->json($miembro);
         return view('miembros.show',['miembro'=>$miembro]);
     }
@@ -69,6 +70,35 @@ class MiembroController extends Controller
     }
 
     public function update(Request $request, $id){
+         /* valición de los datos que se ingresan por el formulario */
+         $request->validate([
+            'nombre_apellido' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'fecha_nacimiento' => 'required',
+            'email' => 'required',
+            'curso' => 'required',
+            'fotografia' => 'required'
+        ]);
 
+        $miembro = Miembro::find($id);
+
+        $miembro->nombre_apellido = $request->nombre_apellido;
+        $miembro->direccion = $request->direccion;
+        $miembro->telefono = $request->telefono;
+        $miembro->fecha_nacimiento = $request->fecha_nacimiento;
+        $miembro->genero = $request->genero;
+        $miembro->email = $request->email;
+        $miembro->curso = $request->curso;
+
+        if(!($request->hasFile('fotogrofia'))){
+            /*TODO: elimina la fotografia antigua y la reemplaza por la foto nueva que se suba */
+            Storage::delete('public/'.$miembro->fotografia);
+            $miembro->fotografia = $request->file('fotografia')->store('fotografias_miembros','public');
+        }
+
+        $miembro->save();
+
+        return redirect()->route('miembros.index')->with('mensaje','Miembro Actualizado Correctamente');
     }
 }
