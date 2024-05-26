@@ -101,4 +101,9 @@ class MiembroController extends Controller
 
         return redirect()->route('miembros.index')->with('mensaje','Miembro Actualizado Correctamente');
     }
+
+    public function destroy($id){
+        Miembro::destroy($id);
+        return redirect()->route('miembros.index')->with('mensaje','Miembro Eliminado Correctamente');
+    }
 }
