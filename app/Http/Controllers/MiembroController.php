@@ -50,7 +50,7 @@ class MiembroController extends Controller
             $miembro->fotografia = $request->file('fotografia')->store('fotografias_miembros','public');
         }
 
-        $miembro->fecha_ingreso = '2024-05-07';
+        $miembro->fecha_ingreso = date($format='Y-m-d');
 
         $miembro->save();
 
