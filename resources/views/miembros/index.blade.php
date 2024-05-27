@@ -56,7 +56,10 @@
                                     <td>{{$miembro->fecha_nacimiento}}</td>
                                     <td>{{$miembro->genero}}</td>
                                     <td>{{$miembro->email}}</td>
-                                    <td>{{$miembro->estado}}</td>
+                                    <td style="text-align:center">
+                                        <button class="btn btn-success btn-sm" style="border-radius:20px">Activo</button>
+                                        <!--{{$miembro->estado}}-->
+                                    </td>
                                     <td>{{$miembro->fecha_ingreso}}</td>
                                     <td style="text-align: center">
                                         <div class="btn-group" role="group" aria-label="Basic example">
