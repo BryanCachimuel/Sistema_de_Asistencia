@@ -26,6 +26,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /*TODO: Para avilitar todas las rutas y acceder a todas las funciones del controlador de Miembro */
 route::resource('/miembros',\App\Http\Controllers\MiembroController::class);
 
+/*TODO: Habilitando las rutas para los cursos */
+route::resource('/cursos',\App\Http\Controllers\CursoController::class);
+
 /*Route::get('/miembros', [App\Http\Controllers\MiembroController::class, 'index']);
 
 Route::get('/miembros/create', [App\Http\Controllers\MiembroController::class, 'create']);*/
