@@ -12,7 +12,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        $cursos = Curso::all();
+        return view('cursos.index', ['cursos'=>$cursos]);
     }
 
     /**
@@ -20,7 +21,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        return view('cursos.create');
     }
 
     /**
