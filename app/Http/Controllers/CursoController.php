@@ -52,9 +52,10 @@ class CursoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Curso $curso)
+    public function show($id)
     {
-        //
+        $curso = Curso::findOrFail($id);
+        return view('cursos.show', ['curso'=>$curso]);
     }
 
     /**
