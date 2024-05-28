@@ -29,7 +29,24 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$curso = request()->all();
+        return response()->json($curso);*/
+        $request->validate([
+            'nombre_curso'=>'required',
+            'fecha_ingreso'=>'required',
+            'descripcion'=>'required'
+        ]);
+
+        $curso = new Curso();
+        $curso->nombre_curso = $request->nombre_curso;
+        $curso->descripcion = $request->descripcion;
+        $curso->estado = '1';
+        $curso->fecha_ingreso = $request->fecha_ingreso;
+        
+        $curso->save();
+
+        return redirect()->route('cursos.index')->with('mensaje','Curso Registrado Correctamente');
+    
     }
 
     /**
