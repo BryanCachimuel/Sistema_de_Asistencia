@@ -22,8 +22,8 @@
                     <div class="card-header">
                         <h3 class="card-title"><strong>Cursos Registrados</strong></h3>
                        <div class="card-tools">
-                            <a href="{{url('/cursoss/create')}}" class="btn btn-primary">
-                                <i class="bi bi-person-fill-add"></i> Agregar Nuevo Curso
+                            <a href="{{url('/cursos/create')}}" class="btn btn-primary">
+                                <i class="bi bi-journal-plus"></i> Agregar Nuevo Curso
                             </a>
                        </div>
                     </div>
@@ -49,7 +49,7 @@
                                 <tr>
                                     <td>@php echo $contador += 1 @endphp</td>
                                     <td>{{$curso->nombre_curso}}</td>
-                                    <td>{{$curso->descripcion}}</td>
+                                    <td>{!!$curso->descripcion!!}</td>
                                     <td style="text-align:center">
                                         <button class="btn btn-success btn-sm" style="border-radius:20px">Activo</button>
                                         <!--{{$curso->estado}}-->
