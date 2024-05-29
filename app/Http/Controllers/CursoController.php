@@ -61,9 +61,10 @@ class CursoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Curso $curso)
+    public function edit($id)
     {
-        //
+        $curso = Curso::findOrFail($id);
+        return view('cursos.edit', ['curso'=>$curso]);
     }
 
     /**
