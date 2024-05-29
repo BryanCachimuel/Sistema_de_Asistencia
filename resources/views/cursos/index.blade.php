@@ -63,7 +63,7 @@
                                             <form action="{{url('cursos',$curso->id)}}" method="POST">
                                                 @csrf
                                                 {{method_field('DELETE')}}
-                                                <button type="submit" class="btn btn-danger">
+                                                <button type="submit" onclick="return confirm('¿Estas seguro de eliminar este registro?')" class="btn btn-danger">
                                                     <i class="bi bi-trash3-fill"></i>
                                                 </button>
                                             </form>
