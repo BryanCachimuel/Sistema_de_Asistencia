@@ -70,9 +70,22 @@ class CursoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nombre_curso'=>'required',
+            'fecha_ingreso'=>'required',
+            'descripcion'=>'required'
+        ]);
+
+        $curso = Curso::find($id);
+        $curso->nombre_curso =  $request->nombre_curso;
+        $curso->descripcion =  $request->descripcion;
+        $curso->fecha_ingreso =  $request->fecha_ingreso;
+
+        $curso->save();
+
+        return redirect()->route('cursos.index')->with('mensaje','Curso Actualizado Correctamente');
     }
 
     /**
