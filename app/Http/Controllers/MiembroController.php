@@ -103,7 +103,9 @@ class MiembroController extends Controller
     }
 
     public function destroy($id){
+        $miembro = Miembro::find($id);
         Miembro::destroy($id);
+        Storage::delete('public/'.$miembro->fotografia);
         return redirect()->route('miembros.index')->with('mensaje','Miembro Eliminado Correctamente');
     }
 }
