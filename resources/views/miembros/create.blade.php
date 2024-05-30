@@ -75,8 +75,8 @@
                                         <div class="form-group">
                                             <label for="">Género:</label>
                                             <select name="genero" class="form-control">
-                                                <option value="Masculino">Masculino</option>
-                                                <option value="Femenino">Femenino</option>
+                                                <option value="Masculino"{{old('genero') == 'Masculino' ? 'selected' : ''}}>Masculino</option>
+                                                <option value="Femenino"{{old('genero') == 'Femenino' ? 'selected' : ''}}>Femenino</option>
                                             </select>
                                         </div>
                                     </div>
