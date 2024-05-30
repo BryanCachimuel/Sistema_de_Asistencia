@@ -29,7 +29,28 @@
                 </div>
             </div>
 
-            
+            <div class="col-lg-3">
+                <div class="small-box bg-success" style="height: 160px">
+                    <div class="inner">
+                        @php
+                            $contador_de_miembros = 0;
+                        @endphp
+                        @foreach ($miembros as $miembro)
+                            @php
+                                 $contador_de_miembros += 1; 
+                            @endphp
+                        @endforeach
+
+                        <h3><?= $contador_de_miembros; ?></h3>
+                        
+                        <p>Miembros</p>
+                    </div>
+                    <div class="icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <a href="{{url('miembros')}}" class="small-box-footer" style="margin-top: 20px;">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
         </div>
 
     </div>
