@@ -21,7 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Iconos de bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- JQUERY -->
-    <script src="{{asset('plugins/jquery/jquery.js')}}"></script>
+    <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
@@ -182,8 +182,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ url('/') }}" class="brand-link">
-                <img src="{{url('/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: .8">
+                <img src="{{ url('/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Control Asistencia</span>
             </a>
 
@@ -192,7 +192,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{url('/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ url('/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info">
                         <!-- forma de accesar a los valores del nombre del usuario que a iniciado sesión -->
@@ -206,32 +207,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas">
-                                    <i class="bi bi-people"></i>
-                                </i>
-                                <p>
-                                    Miembros
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{url('miembros/create')}}" class="nav-link">
-                                        <i class="bi bi-person-plus-fill"></i>
-                                        <p>Nuevo Miembro</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('miembros')}}" class="nav-link">
-                                        <i class="bi bi-list-ul"></i>
-                                        <p>Listado de Miembros</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
 
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
@@ -245,25 +220,51 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{url('cursos/create')}}" class="nav-link">
+                                    <a href="{{ url('cursos/create') }}" class="nav-link">
                                         <i class="bi bi-journal-plus"></i>
                                         <p>Nuevo Cursos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{url('cursos')}}" class="nav-link">
-                                        <i class="bi bi-journal-text"></i>  
+                                    <a href="{{ url('cursos') }}" class="nav-link">
+                                        <i class="bi bi-journal-text"></i>
                                         <p>Listado de Cursos</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas">
+                                    <i class="bi bi-people"></i>
+                                </i>
+                                <p>
+                                    Miembros
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('miembros/create') }}" class="nav-link">
+                                        <i class="bi bi-person-plus-fill"></i>
+                                        <p>Nuevo Miembro</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('miembros') }}" class="nav-link">
+                                        <i class="bi bi-list-ul"></i>
+                                        <p>Listado de Miembros</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();" style="background-color: #e20d18">
+                                          document.getElementById('logout-form').submit();"
+                                style="background-color: #e20d18">
                                 <i class="nav-icon">
                                     <i class="bi bi-door-closed"></i>
                                 </i>
@@ -283,10 +284,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-           <div class="content mt-2">
-            <!--TODO: solo este espacio va a ser diferente de acuerdo a cada página web que se visite -->
+            <div class="content mt-2">
+                <!--TODO: solo este espacio va a ser diferente de acuerdo a cada página web que se visite -->
                 @yield('content')
-           </div>
+            </div>
         </div>
         <!-- /.content-wrapper -->
 
@@ -320,19 +321,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
     <!-- DataTables  & Plugins -->
-    <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-    <script src="{{asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
-    <script src="{{asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('plugins/jszip/jszip.min.js')}}"></script>
-    <script src="{{asset('plugins/pdfmake/pdfmake.min.js')}}"></script>
-    <script src="{{asset('plugins/pdfmake/vfs_fonts.js')}}"></script>
-    <script src="{{asset('plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
-    <script src="{{asset('plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
-    <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 </body>
 
 </html>
-  
