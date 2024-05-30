@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('index');
 })->middleware('auth');
 
+Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
+
 /*TODO: deshabilitar la ruta para la vista de register */
 Auth::routes(['register'=>false]);
 
