@@ -196,8 +196,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <!-- forma de accesar a los valores del nombre del usuario que a iniciado sesión -->
-                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                        <!-- forma de accesar a los valores del nombre del usuario que a iniciado sesión
+                             validando que un nombre de usuario esste registrado
+                        -->
+                        <a href="#" class="d-block">{{ Auth::user()?->name }}</a>
                     </div>
                 </div>
 
@@ -207,6 +209,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas">
+                                    <i class="bi bi-people"></i>
+                                </i>
+                                <p>
+                                    Usuarios
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('usuarios/create') }}" class="nav-link">
+                                        <i class="bi bi-person-fill-add"></i>
+                                        <p>Nuevo Usuario</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('usuarios') }}" class="nav-link">
+                                        <i class="bi bi-person-lines-fill"></i>
+                                        <p>Listado de Usuarios</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
