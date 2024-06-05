@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
 
 /*TODO: deshabilitar la ruta para la vista de register */
-Auth::routes(['register'=>false]);
+Auth::routes(['register'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -30,6 +30,9 @@ route::resource('/miembros',\App\Http\Controllers\MiembroController::class);
 
 /*TODO: Habilitando las rutas para los cursos */
 route::resource('/cursos',\App\Http\Controllers\CursoController::class);
+
+/*TODO: Habilitando las rutas para los usuarios */
+route::resource('/usuarios', \App\Http\Controllers\UserController::class);
 
 /*Route::get('/miembros', [App\Http\Controllers\MiembroController::class, 'index']);
 
