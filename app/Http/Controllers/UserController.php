@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -25,12 +27,23 @@ class UserController extends Controller
         return view('usuarios.create');
     }
 
+   
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $usuario = new User();
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->password = Hash::make($request['password']);
+        $usuario->fecha_ingreso = date($format='Y-m-d');
+        $usuario->estado = '1';
+        
+
+        $usuario->save();
+        return redirect()->route('usuarios.index')->with('mensaje','Usuario registrado Correctamente');
     }
 
     /**
