@@ -41,15 +41,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario = new User();
-        $usuario->name = $request->name;
-        $usuario->email = $request->email;
-        $usuario->password = Hash::make($request['password']);
-        $usuario->fecha_ingreso = date($format='Y-m-d');
-        $usuario->estado = '1';
-        
-        $usuario->save();
-        return redirect()->route('usuarios.index')->with('mensaje','Usuario registrado Correctamente');
+            $usuario = new User();
+            $usuario->name = $request->name;
+            $usuario->email = $request->email;
+            $usuario->password = Hash::make($request['password']);
+            $usuario->fecha_ingreso = date($format='Y-m-d');
+            $usuario->estado = '1';
+            
+            $usuario->save();
+            return redirect()->route('usuarios.index')->with('mensaje','Usuario Registrado Correctamente');
     }
 
     /**
@@ -73,9 +73,15 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $usuario = User::findOrFail($id);
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->password = Hash::make($request['password']);
+        
+        $usuario->save();
+        return redirect()->route('usuarios.index')->with('mensaje','Usuario Actualizado Correctamente');
     }
 
     /**
