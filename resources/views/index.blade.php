@@ -51,6 +51,29 @@
                     <a href="{{url('miembros')}}" class="small-box-footer" style="margin-top: 20px;">Más Información <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+
+            <div class="col-lg-3">
+                <div class="small-box bg-warning" style="height: 160px">
+                    <div class="inner">
+                        @php
+                            $contador_de_usuarios = 0;
+                        @endphp
+                        @foreach ($usuarios as $usuario)
+                            @php
+                                 $contador_de_usuarios += 1; 
+                            @endphp
+                        @endforeach
+
+                        <h3><?= $contador_de_usuarios; ?></h3>
+                        
+                        <p>Usuarios</p>
+                    </div>
+                    <div class="icon">
+                        <i class="bi bi-person-check"></i>
+                    </div>
+                    <a href="{{url('usuarios')}}" class="small-box-footer" style="margin-top: 20px;">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
         </div>
 
     </div>
