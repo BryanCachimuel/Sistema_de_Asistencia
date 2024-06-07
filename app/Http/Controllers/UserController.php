@@ -48,7 +48,6 @@ class UserController extends Controller
         $usuario->fecha_ingreso = date($format='Y-m-d');
         $usuario->estado = '1';
         
-
         $usuario->save();
         return redirect()->route('usuarios.index')->with('mensaje','Usuario registrado Correctamente');
     }
@@ -65,9 +64,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $usuario = User::findOrFail($id);
+        return view('usuarios.edit',['usuario'=>$usuario]);   
     }
 
     /**
