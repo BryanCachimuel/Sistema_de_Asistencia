@@ -60,7 +60,7 @@
                                            <a href="{{url('usuarios',$usuario->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye-fill"></i></a>
                                            <a href="{{route('usuarios.edit',$usuario->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
                                            <!-- formulario para eliminar un miembro -->
-                                           <form action="{{url('usarios',$usuario->id)}}" method="POST">
+                                           <form action="{{url('usuarios',$usuario->id)}}" method="POST">
                                                @csrf
                                                {{method_field('DELETE')}}
                                                <button type="submit" onclick="return confirm('¿Estas seguro de eliminar este registro?')" class="btn btn-danger">
