@@ -34,6 +34,8 @@ route::resource('/cursos',\App\Http\Controllers\CursoController::class);
 /*TODO: Habilitando las rutas para los usuarios */
 route::resource('/usuarios', \App\Http\Controllers\UserController::class);
 
+route::resource('/asistencias', \App\Http\Controllers\AsistenciaController::class);
+
 /*Route::get('/miembros', [App\Http\Controllers\MiembroController::class, 'index']);
 
 Route::get('/miembros/create', [App\Http\Controllers\MiembroController::class, 'create']);*/
