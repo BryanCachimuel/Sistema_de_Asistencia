@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    {{ $asistencia->name ?? __('Show') . " " . __('Asistencia') }}
-@endsection
+@extends('layouts.admin')
 
 @section('content')
     <section class="content container-fluid">
