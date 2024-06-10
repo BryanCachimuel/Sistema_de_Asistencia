@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Asistencias
-@endsection
+@extends('layouts.admin')
 
 @section('content')
     <div class="container-fluid">
@@ -17,8 +13,8 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('asistencias.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                <a href="{{ route('asistencias.create') }}" class="btn btn-primary"  data-placement="left">
+                                    <i class="bi bi-plus-circle"></i> Nueva Asistencia
                                 </a>
                               </div>
                         </div>
@@ -36,8 +32,8 @@
                                     <tr>
                                         <th>No</th>
                                         
-									<th >Fecha</th>
-									<th >Miembro Id</th>
+									<th >Fecha Asistencia</th>
+									<th >Nombres Miembros</th>
 
                                         <th></th>
                                     </tr>
@@ -52,11 +48,11 @@
 
                                             <td>
                                                 <form action="{{ route('asistencias.destroy', $asistencia->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('asistencias.show', $asistencia->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('asistencias.edit', $asistencia->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('asistencias.show', $asistencia->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('asistencias.edit', $asistencia->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
