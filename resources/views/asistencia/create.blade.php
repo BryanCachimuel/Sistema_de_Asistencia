@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    {{ __('Create') }} Asistencia
-@endsection
+@extends('layouts.admin')
 
 @section('content')
     <section class="content container-fluid">
@@ -11,7 +7,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Asistencia</span>
+                        <span class="card-title">Creación de Asistencias</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('asistencias.store') }}"  role="form" enctype="multipart/form-data">
