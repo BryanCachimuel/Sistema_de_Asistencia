@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asistencia;
+use App\Models\Miembro;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\AsistenciaRequest;
@@ -28,8 +29,9 @@ class AsistenciaController extends Controller
     public function create(): View
     {
         $asistencia = new Asistencia();
-
-        return view('asistencia.create', compact('asistencia'));
+        /*TODO: con la función pluck se puede obtener los parámetros a dos tipos de atributos de la entidad miembros */
+        $miembros = Miembro::pluck('nombre_apellido','id');
+        return view('asistencia.create', compact('asistencia','miembros'));
     }
 
     /**
