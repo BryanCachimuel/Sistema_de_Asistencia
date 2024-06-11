@@ -9,7 +9,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Asistencias') }}
+                                Listado de Asistencia
                             </span>
 
                              <div class="float-right">
@@ -27,14 +27,12 @@
 
                     <div class="card-body bg-white">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table id="asistenciatable" class="table table-bordered table-striped table-sm">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-									<th >Fecha Asistencia</th>
-									<th >Nombres Miembros</th>
-
+                                        <th>No</th>    
+									    <th >Fecha Asistencia</th>
+									    <th >Nombres de los Miembros</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -44,7 +42,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 										<td >{{ $asistencia->fecha }}</td>
-										<td >{{ $asistencia->miembro_id }}</td>
+										<td >{{ $asistencia->miembro->nombre_apellido }}</td>
 
                                             <td>
                                                 <form action="{{ route('asistencias.destroy', $asistencia->id) }}" method="POST">
@@ -59,6 +57,61 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
+                             <!-- Datos del DataTable -->
+                        <script>
+                            $(function () {
+                                $("#asistenciatable").DataTable({
+                                    "pageLength": 10,
+                                    "language": {
+                                        "emptyTable": "No hay información",
+                                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Asistencias",
+                                        "infoEmpty": "Mostrando 0 a 0 de 0 Asistencias",
+                                        "infoFiltered": "(Filtrado de MAX total Asistencias)",
+                                        "infoPostFix": "",
+                                        "thousands": ",",
+                                        "lengthMenu": "Mostrar Menu de Asistencia",
+                                        "loadingRecords": "Cargando...",
+                                        "processing": "Procesando...",
+                                        "search": "Buscador:",
+                                        "zeroRecords": "Sin resultados encontrados",
+                                        "paginate": {
+                                            "first": "Primero",
+                                            "last": "Ultimo",
+                                            "next": "Siguiente",
+                                            "previous": "Anterior"
+                                        }
+                                    },
+                                    "responsive": true, "lengthChange": true, "autoWidth": false,
+                                    buttons: [{
+                                        extend: 'collection',
+                                        text: 'Reportes',
+                                        orientation: 'landscape',
+                                        buttons: [{
+                                            text: 'Copiar',
+                                            extend: 'copy',
+                                        }, {
+                                            extend: 'pdf'
+                                        },{
+                                            extend: 'csv'
+                                        },{
+                                            extend: 'excel'
+                                        },{
+                                            text: 'Imprimir',
+                                            extend: 'print'
+                                        }
+                                        ]
+                                    },
+                                        {
+                                            extend: 'colvis',
+                                            text: 'Visor de columnas',
+                                            collectionLayout: 'fixed three-column'
+                                        }
+                                    ],
+                                }).buttons().container().appendTo('#asistenciatable_wrapper .col-md-6:eq(0)');
+                            });
+                        </script>
+
                         </div>
                     </div>
                 </div>
