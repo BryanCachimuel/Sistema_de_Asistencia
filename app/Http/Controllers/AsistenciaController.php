@@ -51,7 +51,6 @@ class AsistenciaController extends Controller
     public function show($id): View
     {
         $asistencia = Asistencia::find($id);
-
         return view('asistencia.show', compact('asistencia'));
     }
 
@@ -61,8 +60,8 @@ class AsistenciaController extends Controller
     public function edit($id): View
     {
         $asistencia = Asistencia::find($id);
-
-        return view('asistencia.edit', compact('asistencia'));
+        $miembros = Miembro::pluck('nombre_apellido','id');
+        return view('asistencia.edit', compact('asistencia','miembros'));
     }
 
     /**
