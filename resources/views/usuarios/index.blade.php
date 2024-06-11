@@ -78,7 +78,7 @@
                         <!-- Datos del DataTable -->
                         <script>
                             $(function () {
-                                $("#suariostable").DataTable({
+                                $("#usuariostable").DataTable({
                                     "pageLength": 10,
                                     "language": {
                                         "emptyTable": "No hay información",
@@ -125,7 +125,7 @@
                                             collectionLayout: 'fixed three-column'
                                         }
                                     ],
-                                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                                }).buttons().container().appendTo('#usuariostable_wrapper .col-md-6:eq(0)');
                             });
                         </script>
 
