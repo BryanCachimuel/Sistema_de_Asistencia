@@ -1,25 +1,28 @@
 @extends('layouts.admin')
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
+<div class="content ml-3">
+    <h1>Actualización de Asistencia</h1>
+    <div class="row">
+        <section class="content container-fluid">
+                <div class="col-md-11 mt-2">
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Asistencia</span>
-                    </div>
-                    <div class="card-body bg-white">
-                        <form method="POST" action="{{ route('asistencias.update', $asistencia->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            @csrf
+                    <div class="card card-outline card-success">
+                        <div class="card-header">
+                            <h3 class="card-title"><strong>Revice Datos de las Asistencias</strong></h3>
+                        </div>
+                        <div class="card-body bg-white">
+                            <form method="POST" action="{{ route('asistencias.update', $asistencia->id) }}"  role="form" enctype="multipart/form-data">
+                                {{ method_field('PATCH') }}
+                                @csrf
 
-                            @include('asistencia.form')
+                                @include('asistencia.form')
 
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
+</div>
 @endsection
