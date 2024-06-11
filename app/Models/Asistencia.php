@@ -36,7 +36,7 @@ class Asistencia extends Model
     public function miembro()
     {
         //return $this->belongsTo(\App\Models\Miembro::class, 'miembro_id', 'id');
-        return $this->hasOne(\App\Models\Miembro::class, 'miembro_id', 'id');
+        return $this->hasOne('App\Models\Miembro','id','miembro_id');
     }
     
 }
