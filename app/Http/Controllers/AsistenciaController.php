@@ -68,9 +68,7 @@ class AsistenciaController extends Controller
     public function update(AsistenciaRequest $request, Asistencia $asistencia): RedirectResponse
     {
         $asistencia->update($request->validated());
-
-        return Redirect::route('asistencias.index')
-            ->with('success', 'Asistencia updated successfully');
+        return redirect()->route('asistencias.index')->with('mensaje','Asistencia Actualizada Correctamente');
     }
 
     public function destroy($id): RedirectResponse
