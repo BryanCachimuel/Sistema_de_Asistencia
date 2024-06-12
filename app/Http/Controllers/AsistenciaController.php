@@ -76,6 +76,6 @@ class AsistenciaController extends Controller
     public function destroy($id): RedirectResponse
     {
         Asistencia::find($id)->delete();
-        
+        return redirect()->route('asistencias.index')->with('mensaje','Asistencia Eliminada Correctamente');
     }
 }
