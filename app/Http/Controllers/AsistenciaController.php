@@ -40,9 +40,7 @@ class AsistenciaController extends Controller
     public function store(AsistenciaRequest $request): RedirectResponse
     {
         Asistencia::create($request->validated());
-
-        return Redirect::route('asistencias.index')
-            ->with('success', 'Asistencia created successfully.');
+        return redirect()->route('asistencias.index')->with('mensaje','Asistencia Registrada Correctamente');
     }
 
     /**
@@ -78,8 +76,6 @@ class AsistenciaController extends Controller
     public function destroy($id): RedirectResponse
     {
         Asistencia::find($id)->delete();
-
-        return Redirect::route('asistencias.index')
-            ->with('success', 'Asistencia deleted successfully');
+        
     }
 }
