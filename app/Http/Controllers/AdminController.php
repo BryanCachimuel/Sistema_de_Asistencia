@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Curso;
 use App\Models\Miembro;
 use App\Models\User;
+use App\Models\Asistencia;
 
 class AdminController extends Controller
 {
@@ -13,6 +14,11 @@ class AdminController extends Controller
         $cursos = Curso::all();
         $miembros = Miembro::all();
         $usuarios = User::all();
-        return view('index',['cursos'=>$cursos,'miembros'=>$miembros,'usuarios'=>$usuarios]);
+        $asistencias = Asistencia::all();
+        return view('index',['cursos'=>$cursos,
+                             'miembros'=>$miembros,
+                             'usuarios'=>$usuarios,
+                             'asistencias'=>$asistencias
+                            ]);
     }
 }
