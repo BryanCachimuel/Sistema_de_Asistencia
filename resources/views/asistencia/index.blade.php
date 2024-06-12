@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container-fluid">
+        <h1>Listado de Asistencia</h1>
         <!--TODO: si existe una sesión con el nombre mensaje va a aparecer está alerta -->
         @if ($message = Session::get('mensaje'))
             <script>
@@ -15,14 +16,12 @@
             </script> 
         @endif
         <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
+            <div class="col-sm-12 mt-2">
+                <div class="card card-outline card-primary">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                Listado de Asistencia
-                            </span>
+                            <h3 class="card-title"><strong>Listado de Asistencia</strong></h3>
 
                              <div class="float-right">
                                 <a href="{{ route('asistencias.create') }}" class="btn btn-primary"  data-placement="left">
