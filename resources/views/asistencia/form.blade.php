@@ -22,6 +22,7 @@
 
     </div>
     <div class="col-md-12 mt20 mt-2">
+        <a href="{{url('asistencias')}}" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancelar</a>
         <button type="submit" class="btn btn-primary"><i class="bi bi-floppy2-fill"></i> Guardar Asistencia</button>
     </div>
 </div>
