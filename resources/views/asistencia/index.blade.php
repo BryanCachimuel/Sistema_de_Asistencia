@@ -2,6 +2,18 @@
 
 @section('content')
     <div class="container-fluid">
+        <!--TODO: si existe una sesión con el nombre mensaje va a aparecer está alerta -->
+        @if ($message = Session::get('mensaje'))
+            <script>
+                Swal.fire({
+                    title: "Proceso Exitoso",
+                    text: "{{$message}}",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+            </script> 
+        @endif
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -50,7 +62,7 @@
                                                     <a class="btn btn-sm btn-success" href="{{ route('asistencias.edit', $asistencia->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i></button>
+                                                    <button type="submit" onclick="return confirm('¿Estas seguro de eliminar este registro?')" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
