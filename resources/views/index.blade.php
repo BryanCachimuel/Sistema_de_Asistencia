@@ -74,6 +74,30 @@
                     <a href="{{url('usuarios')}}" class="small-box-footer" style="margin-top: 20px;">Más Información <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+
+            <div class="col-lg-3">
+                <div class="small-box bg-primary" style="height: 160px">
+                    <div class="inner">
+                        @php
+                            $contador_de_asistencias = 0;
+                        @endphp
+                        @foreach ($asistencias as $asistencia)
+                            @php
+                                 $contador_de_asistencias += 1; 
+                            @endphp
+                        @endforeach
+
+                        <h3><?= $contador_de_asistencias; ?></h3>
+                        
+                        <p>Asistencias</p>
+                    </div>
+                    <div class="icon">
+                        <i class="bi bi-calendar4-week"></i>
+                    </div>
+                    <a href="{{url('asistencias')}}" class="small-box-footer" style="margin-top: 20px;">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+
         </div>
 
     </div>
