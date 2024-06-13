@@ -81,4 +81,10 @@ class AsistenciaController extends Controller
     {
         return view('asistencia.reportes');
     }
+
+    public function reportesPdf(Request $request)
+    {
+        $asistencias = Asistencia::paginate();
+        return view('asistencia.pdf', compact('asistencias'))->with('i', ($request->input('page', 1) - 1) * $asistencias->perPage());
+    }
 }
