@@ -19,7 +19,7 @@
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="info-box">
                                     <span class="info-box-icon bg-info">
-                                        <a href="{{url('asistencia/reportes_pdf')}}">
+                                        <a href="{{url('asistencias/reportes_pdf')}}">
                                             <i class="bi bi-printer"></i>
                                         </a>
                                     </span>
