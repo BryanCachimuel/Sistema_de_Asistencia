@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AsistenciaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,12 @@ Route::get('/', function () {
     return view('index');
 })->middleware('auth');
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
+Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes']);
 
 /*TODO: deshabilitar la ruta para la vista de register */
 Auth::routes(['register'=>true]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /*TODO: Para avilitar todas las rutas y acceder a todas las funciones del controlador de Miembro */
 route::resource('/miembros',\App\Http\Controllers\MiembroController::class);
