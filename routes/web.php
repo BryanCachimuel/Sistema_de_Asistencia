@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
 Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes']);
+Route::get('/asistencias/reportes_pdf', [AsistenciaController::class, 'reportesPdf']);
 
 /*TODO: deshabilitar la ruta para la vista de register */
 Auth::routes(['register'=>true]);
