@@ -10,6 +10,10 @@ use App\Http\Requests\AsistenciaRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
+/* TODO: Usuando la librería de DOMPDF */
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
+
 class AsistenciaController extends Controller
 {
     /**
@@ -85,6 +89,8 @@ class AsistenciaController extends Controller
     public function reportesPdf(Request $request)
     {
         $asistencias = Asistencia::paginate();
-        return view('asistencia.pdf', compact('asistencias'))->with('i', ($request->input('page', 1) - 1) * $asistencias->perPage());
+        $pdf = Pdf::loadView('asistencia.pdf', ['asistencias'=>$asistencias]);
+        return $pdf->stream();
+        //return view('asistencia.pdf', compact('asistencias'))->with('i', ($request->input('page', 1) - 1) * $asistencias->perPage());
     }
 }
