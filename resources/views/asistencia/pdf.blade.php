@@ -20,9 +20,10 @@
             </tr>
         </thead>
         <tbody>
+            @php $contador_asistencia = 1;  @endphp
             @foreach ($asistencias as $asistencia)
                 <tr>
-                    <td>{{ ++$i }}</td>
+                    <td><?= $contador_asistencia++; ?></td>
                     <td>{{ $asistencia->fecha }}</td>
                     <td>{{ $asistencia->miembro->nombre_apellido }}</td>
                 </tr>
