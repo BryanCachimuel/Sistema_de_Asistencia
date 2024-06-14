@@ -185,6 +185,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        /* TODO: Script para el funcionamiento de la librería DOMPDF */
+        $app->register(\Barryvdh\DomPDF\ServiceProvider::class),
     ])->toArray(),
 
 ];
