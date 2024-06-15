@@ -93,4 +93,13 @@ class AsistenciaController extends Controller
         return $pdf->stream();
         //return view('asistencia.pdf', compact('asistencias'))->with('i', ($request->input('page', 1) - 1) * $asistencias->perPage());
     }
+
+
+    public function reportespdfFechas(Request $request)
+    {
+        /*$asistencias = Asistencia::paginate();
+        $pdf = Pdf::loadView('asistencia.pdf', ['asistencias'=>$asistencias]);
+        return $pdf->stream();*/
+        return view('asistencia.pdfFechas');
+    }
 }
