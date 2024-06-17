@@ -97,9 +97,14 @@ class AsistenciaController extends Controller
 
     public function reportespdfFechas(Request $request)
     {
-        /*$asistencias = Asistencia::paginate();
-        $pdf = Pdf::loadView('asistencia.pdf', ['asistencias'=>$asistencias]);
-        return $pdf->stream();*/
-        return view('asistencia.pdfFechas');
+        $fecha_inicio = $request->fecha_inicio;
+        $fecha_final = $request->fecha_final;
+        $asistencias = Asistencia::where('fecha','>=',$fecha_inicio)
+                                ->where('fecha','<=',$fecha_final)
+                                ->get();
+
+        $pdf = Pdf::loadView('asistencia.pdfFechas', ['asistencias'=>$asistencias]);
+        return $pdf->stream();
+        //return view('asistencia.pdfFechas',['asistencias'=>$asistencias]);
     }
 }
