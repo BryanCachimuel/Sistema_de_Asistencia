@@ -265,7 +265,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas">
-                                    <i class="bi bi-people"></i>
+                                    <i class="bi bi-person-lines-fill"></i>
                                 </i>
                                 <p>
                                     Miembros
@@ -325,6 +325,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('usuarios/reportes') }}" class="nav-link">
+                                        <i class="bi bi-people"></i>
+                                        <p>Usuarios</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="{{ url('asistencias/reportes') }}" class="nav-link">
                                         <i class="bi bi-clipboard2-check"></i>
