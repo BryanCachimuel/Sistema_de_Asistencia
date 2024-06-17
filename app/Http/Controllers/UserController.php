@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -91,5 +92,17 @@ class UserController extends Controller
     {
         User::destroy($id);
         return redirect()->route('usuarios.index')->with('mensaje','Usuario Eliminado Correctamente');
+    }
+
+    public function reportes()
+    {
+        return view('usuarios.reportes');
+    }
+
+    public function reportesPdf()
+    {
+        $usuarios = User::paginate();
+        $pdf = Pdf::loadView('usuarios.pdf',['usuarios'=>$usuarios]);
+        return $pdf->stream();
     }
 }
