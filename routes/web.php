@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,14 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
+
+/*TODO: Rutas de los reportes de asistencias */
 Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes']);
 Route::get('/asistencias/reportes_pdf', [AsistenciaController::class, 'reportesPdf']);
 Route::get('/asistencias/reportes_fechas_pdf', [AsistenciaController::class, 'reportespdfFechas']);
+
+/*TODO: Rutas de los reportes de usuarios */
+Route::get('/usuarios/reportes', [UserController::class, 'reportes']);
 
 /*TODO: deshabilitar la ruta para la vista de register */
 Auth::routes(['register'=>true]);
