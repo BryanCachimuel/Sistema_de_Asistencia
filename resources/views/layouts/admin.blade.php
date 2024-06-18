@@ -338,6 +338,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{ url('miembros/reportes') }}" class="nav-link">
+                                        <i class="bi bi-person-lines-fill"></i>
+                                        <p>Miembros</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{{ url('asistencias/reportes') }}" class="nav-link">
                                         <i class="bi bi-clipboard2-check"></i>
                                         <p>Asistencia</p>
