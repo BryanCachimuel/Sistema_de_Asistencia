@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\MiembroController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -36,6 +37,10 @@ Route::get('/usuarios/reportes_pdf', [UserController::class, 'reportesPdf']);
 /*TODO Rutas de los reportes de cursos */
 Route::get('/cursos/reportes', [CursoController::class, 'reportes']);
 Route::get('/cursos/reportes_pdf', [CursoController::class, 'reportesPdf']);
+
+/*TODO: Rutas de los reportes de miembros */
+Route::get('/miembros/reportes', [MiembroController::class, 'reportes']);
+Route::get('/miembros/reportes_pdf', [MiembroController::class, 'reportesPdf']);
 
 /*TODO: deshabilitar la ruta para la vista de register */
 Auth::routes(['register'=>true]);
