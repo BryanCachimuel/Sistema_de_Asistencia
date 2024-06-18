@@ -35,6 +35,7 @@ Route::get('/usuarios/reportes_pdf', [UserController::class, 'reportesPdf']);
 
 /*TODO Rutas de los reportes de cursos */
 Route::get('/cursos/reportes', [CursoController::class, 'reportes']);
+Route::get('/cursos/reportes_pdf', [CursoController::class, 'reportesPdf']);
 
 /*TODO: deshabilitar la ruta para la vista de register */
 Auth::routes(['register'=>true]);
