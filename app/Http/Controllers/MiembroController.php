@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Miembro;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -107,5 +108,15 @@ class MiembroController extends Controller
         Miembro::destroy($id);
         Storage::delete('public/'.$miembro->fotografia);
         return redirect()->route('miembros.index')->with('mensaje','Miembro Eliminado Correctamente');
+    }
+
+    public function reportes(){
+        return view('miembros.reportes');
+    }
+
+    public function reportesPdf(){
+        $miembros = Miembro::paginate();
+        $pdf = Pdf::loadView('miembros.pdf', ['miembros'=>$miembros]);
+        return $pdf->stream();
     }
 }
