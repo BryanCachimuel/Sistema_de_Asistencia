@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Curso;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -95,5 +96,17 @@ class CursoController extends Controller
     {
         Curso::destroy($id);
         return redirect()->route('cursos.index')->with('mensaje','Curso Eliminado Correctamente');
+    }
+
+    public function reportes()
+    {
+        return view('cursos.reportes');
+    }
+
+    public function reportesPdf()
+    {
+        $cursos = Curso::paginate();
+        $pdf = Pdf::loadView('cursos.pdf', ['cursos'=>$cursos]);
+        return $pdf->stream();
     }
 }
