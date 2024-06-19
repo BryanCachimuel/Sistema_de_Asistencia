@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         /*TODO: se hace un llamado al seeder creado con el nombre MiembroSeeder */
         $this->call([
-            MiembroSeeder::class
+            RoleSeeder::class,
         ]);
     }
 }
