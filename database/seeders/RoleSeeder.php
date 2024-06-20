@@ -19,8 +19,17 @@ class RoleSeeder extends Seeder
         /*TODO: El sistema va a tener dos roles:
             1) Rol administrador
             2) Rol secretaría
+
+            Estos roles se guardan en la base de datos con el comando: php artisam db:seed
         */
         $administrador = Role::create(['name' => 'administrador']);
         $secretaria = Role::create(['name' => 'secretaria']);
+
+        Permission::create(['name' => 'index']);
+        Permission::create(['name' => 'home']);
+        Permission::create(['name' => 'asistencia.reportes']);
+        Permission::create(['name' => 'asistencia.pdf']);
+        Permission::create(['name' => 'asistencia.pdf_fechas']);
+    
     }
 }
