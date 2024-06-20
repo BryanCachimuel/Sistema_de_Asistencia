@@ -30,6 +30,12 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'asistencia.reportes']);
         Permission::create(['name' => 'asistencia.pdf']);
         Permission::create(['name' => 'asistencia.pdf_fechas']);
+        Permission::create(['name' => 'usuarios.reportes']);
+        Permission::create(['name' => 'usuarios.pdf']);
+        Permission::create(['name' => 'cursos.reportes']);
+        Permission::create(['name' => 'cursos.pdf']);
+        Permission::create(['name' => 'miembros.reportes']);
+        Permission::create(['name' => 'miembros.pdf']);
     
     }
 }
