@@ -6,41 +6,30 @@ use App\Http\Controllers\CursoController;
 use App\Http\Controllers\MiembroController;
 use App\Http\Controllers\UserController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-/*TODO: permite que si un usuario esta autenticado pueda ingresar a la ruta de la vista del index */
+/*TODO: permite que si un usuario esta autenticado pueda ingresar a la ruta de la vista del index 
 Route::get('/', function () {
     return view('index');
-})->middleware('auth');
+})->middleware('auth');*/
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
+Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('index');
 
 /*TODO: Rutas de los reportes de asistencias */
-Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes']);
-Route::get('/asistencias/reportes_pdf', [AsistenciaController::class, 'reportesPdf']);
-Route::get('/asistencias/reportes_fechas_pdf', [AsistenciaController::class, 'reportespdfFechas']);
+Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes'])->name('asistencia_reportes');
+Route::get('/asistencias/reportes_pdf', [AsistenciaController::class, 'reportesPdf'])->name('asistencia_pdf');
+Route::get('/asistencias/reportes_fechas_pdf', [AsistenciaController::class, 'reportespdfFechas'])->name('asistencia_pdf_fechas');
 
 /*TODO: Rutas de los reportes de usuarios */
-Route::get('/usuarios/reportes', [UserController::class, 'reportes']);
-Route::get('/usuarios/reportes_pdf', [UserController::class, 'reportesPdf']);
+Route::get('/usuarios/reportes', [UserController::class, 'reportes'])->name('usuarios_repprtes');
+Route::get('/usuarios/reportes_pdf', [UserController::class, 'reportesPdf'])->name('usuarios.pdf');
 
 /*TODO Rutas de los reportes de cursos */
-Route::get('/cursos/reportes', [CursoController::class, 'reportes']);
-Route::get('/cursos/reportes_pdf', [CursoController::class, 'reportesPdf']);
+Route::get('/cursos/reportes', [CursoController::class, 'reportes'])->name('cursos_reportes');
+Route::get('/cursos/reportes_pdf', [CursoController::class, 'reportesPdf'])->name('cursos_pdf');
 
 /*TODO: Rutas de los reportes de miembros */
-Route::get('/miembros/reportes', [MiembroController::class, 'reportes']);
-Route::get('/miembros/reportes_pdf', [MiembroController::class, 'reportesPdf']);
+Route::get('/miembros/reportes', [MiembroController::class, 'reportes'])->name('miembros_reportes');
+Route::get('/miembros/reportes_pdf', [MiembroController::class, 'reportesPdf'])->name('miembros_pdf');
 
 /*TODO: deshabilitar la ruta para la vista de register */
 Auth::routes(['register'=>true]);
@@ -55,10 +44,6 @@ route::resource('/cursos',\App\Http\Controllers\CursoController::class);
 route::resource('/usuarios', \App\Http\Controllers\UserController::class);
 
 route::resource('/asistencias', \App\Http\Controllers\AsistenciaController::class);
-
-/*Route::get('/miembros', [App\Http\Controllers\MiembroController::class, 'index']);
-
-Route::get('/miembros/create', [App\Http\Controllers\MiembroController::class, 'create']);*/
 
 /*TODO: habilitando la ruta para listar los miembros registrados 
 Route::get('/miembros', function () {
