@@ -21,25 +21,27 @@ class RoleSeeder extends Seeder
             2) Rol secretaría
 
             Estos roles se guardan en la base de datos con el comando: php artisam db:seed
+            Nota: los permisos que se van a dar a cada ruta hay que registrarlos conjuntamente con el registro de los roles 
+            por que si se vuelve a ejecutar después de registrar los roles dara un error
         */
         $administrador = Role::create(['name' => 'administrador']);
         $secretaria = Role::create(['name' => 'secretaria']);
 
-        Permission::create(['name' => 'index']);
-        Permission::create(['name' => 'home']);
-        Permission::create(['name' => 'asistencia.reportes']);
-        Permission::create(['name' => 'asistencia.pdf']);
-        Permission::create(['name' => 'asistencia.pdf_fechas']);
-        Permission::create(['name' => 'usuarios.reportes']);
-        Permission::create(['name' => 'usuarios.pdf']);
-        Permission::create(['name' => 'cursos.reportes']);
-        Permission::create(['name' => 'cursos.pdf']);
-        Permission::create(['name' => 'miembros.reportes']);
-        Permission::create(['name' => 'miembros.pdf']);
-        Permission::create(['name' => 'miembros.']);
-        Permission::create(['name' => 'cursos']);
-        Permission::create(['name' => 'usuarios']);
-        Permission::create(['name' => 'asistencias']);
+        Permission::create(['name' => 'index'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'home'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'asistencia_reportes'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'asistencia_pdf'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'asistencia_pdf_fechas'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'usuarios_reportes'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'usuarios_pdf'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'cursos_reportes'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'cursos_pdf'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'miembros_reportes'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'miembros_pdf'])->syncRoles([$administrador,$secretaria]);
+        Permission::create(['name' => 'miembros'])->syncRoles([$administrador]);
+        Permission::create(['name' => 'cursos'])->syncRoles([$administrador]);
+        Permission::create(['name' => 'usuarios'])->syncRoles([$administrador]);
+        Permission::create(['name' => 'asistencias'])->syncRoles([$administrador,$secretaria]);
     
     }
 }
