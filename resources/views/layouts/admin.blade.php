@@ -210,31 +210,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas">
-                                    <i class="bi bi-people"></i>
-                                </i>
-                                <p>
-                                    Usuarios
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ url('usuarios/create') }}" class="nav-link">
-                                        <i class="bi bi-person-fill-add"></i>
-                                        <p>Nuevo Usuario</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('usuarios') }}" class="nav-link">
-                                        <i class="bi bi-person-lines-fill"></i>
-                                        <p>Listado de Usuarios</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        @can('usuarios')
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">
+                                    <i class="nav-icon fas">
+                                        <i class="bi bi-people"></i>
+                                    </i>
+                                    <p>
+                                        Usuarios
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ url('usuarios/create') }}" class="nav-link">
+                                            <i class="bi bi-person-fill-add"></i>
+                                            <p>Nuevo Usuario</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('usuarios') }}" class="nav-link">
+                                            <i class="bi bi-person-lines-fill"></i>
+                                            <p>Listado de Usuarios</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endcan
 
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
