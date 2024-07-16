@@ -262,31 +262,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas">
-                                    <i class="bi bi-person-lines-fill"></i>
-                                </i>
-                                <p>
-                                    Miembros
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ url('miembros/create') }}" class="nav-link">
-                                        <i class="bi bi-person-plus-fill"></i>
-                                        <p>Nuevo Miembro</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('miembros') }}" class="nav-link">
-                                        <i class="bi bi-list-ul"></i>
-                                        <p>Listado de Miembros</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        @can('miembros')
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">
+                                    <i class="nav-icon fas">
+                                        <i class="bi bi-person-lines-fill"></i>
+                                    </i>
+                                    <p>
+                                        Miembros
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ url('miembros/create') }}" class="nav-link">
+                                            <i class="bi bi-person-plus-fill"></i>
+                                            <p>Nuevo Miembro</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('miembros') }}" class="nav-link">
+                                            <i class="bi bi-list-ul"></i>
+                                            <p>Listado de Miembros</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endcan
 
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
