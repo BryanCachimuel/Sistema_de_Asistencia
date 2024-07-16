@@ -35,7 +35,7 @@ Route::get('/miembros/reportes_pdf', [MiembroController::class, 'reportesPdf'])-
 Auth::routes(['register'=>true]);
 
 /*TODO: Para avilitar todas las rutas y acceder a todas las funciones del controlador de Miembro */
-route::resource('/miembros',\App\Http\Controllers\MiembroController::class);
+route::resource('/miembros',\App\Http\Controllers\MiembroController::class)->middleware('can:miembros');
 
 /*TODO: Habilitando las rutas para los cursos */
 route::resource('/cursos',\App\Http\Controllers\CursoController::class);
