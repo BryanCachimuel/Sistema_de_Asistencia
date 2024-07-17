@@ -15,44 +15,31 @@ class MiembroSeeder extends Seeder
      */
     public function run(): void
     {
-        /*Miembro::create([
-            'nombre_apellido'=>'KR',
-            'direccion'=>'UI',
+        Miembro::create([
+            'nombre_apellido'=>'Kevin López',
+            'direccion'=>'Santo Domingo',
             'telefono'=>'0985749687',
-            'fecha_nacimiento'=>'1994-06-25',
+            'fecha_nacimiento'=>'1995-01-12',
             'genero'=>'masculino',
-            'email'=>'kr@outlook.com',
+            'email'=>'kevinlopez@outlook.com',
             'estado'=>'1',
-            'curso'=>'Inteligencia Artificial',
-            'fotografia'=>'kr.jpg',
-            'fecha_ingreso'=>'2024-05-02'
+            'curso'=>'Desarrollo de Software',
+            'fotografia'=>'kl.jpg',
+            'fecha_ingreso'=>'2024-07-16'
         ]);
 
         Miembro::create([
-            'nombre_apellido'=>'ML',
-            'direccion'=>'OI',
-            'telefono'=>'0952145639',
-            'fecha_nacimiento'=>'1994-02-18',
+            'nombre_apellido'=>'Marlene Arrayan',
+            'direccion'=>'Quito',
+            'telefono'=>'0987456934',
+            'fecha_nacimiento'=>'1995-04-25',
             'genero'=>'femenino',
-            'email'=>'ml8@gmail.com',
+            'email'=>'marlenearrayan@gmail.com',
             'estado'=>'1',
-            'curso'=>'Inglés',
-            'fotografia'=>'ml.jpg',
+            'curso'=>'Programación',
+            'fotografia'=>'ma.jpg',
             'fecha_ingreso'=>'2024-05-02'
         ]);
-
-        Miembro::create([
-            'nombre_apellido'=>'CT',
-            'direccion'=>'MO',
-            'telefono'=>'0984756398',
-            'fecha_nacimiento'=>'1995-12-06',
-            'genero'=>'masculino',
-            'email'=>'ct07@yahoo.es',
-            'estado'=>'1',
-            'curso'=>'Geolocalización',
-            'fotografia'=>'ct.jpg',
-            'fecha_ingreso'=>'2024-05-02'
-        ]);*/
 
         /*TODO: Invocando a la clase que contiene MiembroFactory para crear un sin número de siembra 
         de datos(en este caso en el contador solo se a puesto que se ingresen solo 20 registros) */
