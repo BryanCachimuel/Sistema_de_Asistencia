@@ -38,7 +38,7 @@ Auth::routes(['register'=>true]);
 route::resource('/miembros',\App\Http\Controllers\MiembroController::class)->middleware('can:miembros');
 
 /*TODO: Habilitando las rutas para los cursos */
-route::resource('/cursos',\App\Http\Controllers\CursoController::class);
+route::resource('/cursos',\App\Http\Controllers\CursoController::class)->middleware('can:cursos');
 
 /*TODO: Habilitando las rutas para los usuarios */
 route::resource('/usuarios', \App\Http\Controllers\UserController::class)->middleware('can:usuarios');
